@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon assistant de cohérence cardiaque</title>
+  <link rel="stylesheet" href="./scss/index.scss">
+  <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+  <script type="module" src="./js/app.js" defer></script>
+
+</head>
+
+<body>
+  <div class="page">
+    <header>
+      <div class="header">
+        <a href="/" class="header__logo">
+          <img src="./img/logo.png" alt="Mon assistant de cohérence cardiaque">
+        </a>
+      </div>
+    </header>
+    <main class="page__content">
+      <div class="page__intro">
+        <h1 class="page__title">Mon assistant de <div class="page__title-emphasis"><span
+              class="page__title-emphasis-gradient">cohérence cardiaque</span></div>
+        </h1>
+        <section class="config">
+          <h2 class="config-title">Paramétrer l'exercice</h2>
+          <form class="config__form" action="post">
+            <div class="config-row">
+              <label>
+                <span class="config-legend">Durée</span>
+                <input type="range" name="duration" value="3" min="1" max="5" step="1">
+              </label>
+              <input aria-hidden="true" name="duration-number" type="number" value="3" min="1" max="5" step="1"> min
+            </div>
+            <div class="config-row">
+              <label>
+                <span class="config-legend">Temps de respiration (inspiration & expiration)</span>
+                <select name="breath-ratio" id="">
+                  <option>6/4</option>
+                  <option selected>5/5</option>
+                  <option>4/6</option>
+                  <option>3/7</option>
+                </select>
+                secondes
+              </label>
+            </div>
+            <fieldset class="config-row">
+              <legend class="config-legend">Animation</legend>
+              <label>
+                <input type="radio" checked name="animation" value="size">Taille
+              </label>
+              <label>
+                <input type="radio" name="animation" value="position">Position
+              </label>
+            </fieldset>
+            <fieldset class="config-row">
+              <legend class="config-legend">Bruitage de l'océan</legend>
+              <label>
+                <input type="checkbox" name="son" value="1"> Activer le son
+              </label>
+            </fieldset>
+            <div class="config__form__action">
+              <button class="btn">Commencer</button>
+            </div>
+          </form>
+        </section>
+        <section class="segment">
+        </section>
+        <audio id="inhaleSound" src="/src/sound/int.mp3"></audio>
+        <audio id="exhaleSound" src="/src/sound/out.mp3"></audio>
+      </div>
+    </main>
+    <footer>
+    </footer>
+  </div>
+</body>
+
+</html>

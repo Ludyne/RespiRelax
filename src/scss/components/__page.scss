@@ -1,0 +1,37 @@
+@use "../_var.scss";
+
+body {
+  color: var.$color-text;
+  background-color: #fff;
+  background-image: linear-gradient(-6deg, white 30%, transparent 30.1%),
+    var.$gradient;
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  font-family: "Mulish", sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  max-width: 75em;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+
+  &__title {
+    font-family: "Calistoga";
+    font-size: 7vw;
+    margin-bottom: 4rem;
+
+    &-emphasis {
+      background-color: #fff;
+
+      &-gradient {
+        background-image: var.$gradient;
+        background-clip: text;
+        color: #0000;
+      }
+    }
+  }
+}

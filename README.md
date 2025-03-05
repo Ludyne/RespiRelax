@@ -1,8 +1,12 @@
 # Respirelax
 
-Bienvenue ! 👋
+Ceci est un projet pour tester mes connaissances.
 
-Ceci est un projet pour tester mes connaissances. C'est une application qui vous permet de prendre un moment pour vous. Vous pouvez choisir la durée de l'exercice, d'ajouter un son et bien d'autres encore.
+Fonctionnalités principales ⭐
+- Choix de la durée de l'exercice
+- Ajout du son
+- Ajout du temps de respiration
+
 
 ## My processs
 

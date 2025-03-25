@@ -101,6 +101,7 @@ class BreathingApp {
     `;
 
     const circle = this.segment.querySelector(".exercice-disc");
+    this.updateAnimation();
 
     // Calculer les durées
     const [inhaleTime, exhaleTime] = this.breathRatio.split("/").map(Number);
@@ -138,9 +139,11 @@ class BreathingApp {
       }
 
       if (this.state === STATES.INHALE) {
-        if (this.soundEnabled && this.inhaleSound) this.inhaleSound.pause();
-        this.inhaleSound.currentTime = 0;
-        this.inhaleSound.play().catch((e) => console.log("Erreur audio:", e));
+        if (this.soundEnabled && this.inhaleSound) {
+          this.inhaleSound.pause();
+          this.inhaleSound.currentTime = 0;
+          this.inhaleSound.play().catch((e) => console.log("Erreur audio:", e));
+        }
 
         circle.classList.remove("exercice-disc--out");
         circle.classList.add("exercice-disc--in");
@@ -151,10 +154,11 @@ class BreathingApp {
         this.state = STATES.EXHALE;
         setTimeout(animate, inhaleTime * 1000);
       } else {
-        if (this.soundEnabled && this.exhaleSound) this.exhaleSound.pause();
-        this.exhaleSound.currentTime = 0;
-        this.exhaleSound.play().catch((e) => console.log("Erreur audio:", e));
-
+        if (this.soundEnabled && this.exhaleSound) {
+          this.exhaleSound.pause();
+          this.exhaleSound.currentTime = 0;
+          this.exhaleSound.play().catch((e) => console.log("Erreur audio:", e));
+        }
         circle.classList.remove("exercice-disc--in");
         circle.classList.add("exercice-disc--out");
 

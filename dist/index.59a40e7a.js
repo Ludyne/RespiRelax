@@ -676,6 +676,7 @@ class BreathingApp {
       </div>
     `;
         const circle = this.segment.querySelector(".exercice-disc");
+        this.updateAnimation();
         // Calculer les durées
         const [inhaleTime, exhaleTime] = this.breathRatio.split("/").map(Number);
         const totalDuration = this.duration * 60000; // convertir en millisecondes
@@ -705,9 +706,11 @@ class BreathingApp {
         const animate = ()=>{
             if (!this.isRunning) return;
             if (this.state === STATES.INHALE) {
-                if (this.soundEnabled && this.inhaleSound) this.inhaleSound.pause();
-                this.inhaleSound.currentTime = 0;
-                this.inhaleSound.play().catch((e)=>console.log("Erreur audio:", e));
+                if (this.soundEnabled && this.inhaleSound) {
+                    this.inhaleSound.pause();
+                    this.inhaleSound.currentTime = 0;
+                    this.inhaleSound.play().catch((e)=>console.log("Erreur audio:", e));
+                }
                 circle.classList.remove("exercice-disc--out");
                 circle.classList.add("exercice-disc--in");
                 const title = this.segment.querySelector(".exercice-title");
@@ -715,9 +718,11 @@ class BreathingApp {
                 this.state = STATES.EXHALE;
                 setTimeout(animate, inhaleTime * 1000);
             } else {
-                if (this.soundEnabled && this.exhaleSound) this.exhaleSound.pause();
-                this.exhaleSound.currentTime = 0;
-                this.exhaleSound.play().catch((e)=>console.log("Erreur audio:", e));
+                if (this.soundEnabled && this.exhaleSound) {
+                    this.exhaleSound.pause();
+                    this.exhaleSound.currentTime = 0;
+                    this.exhaleSound.play().catch((e)=>console.log("Erreur audio:", e));
+                }
                 circle.classList.remove("exercice-disc--in");
                 circle.classList.add("exercice-disc--out");
                 const title = this.segment.querySelector(".exercice-title");

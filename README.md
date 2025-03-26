@@ -27,5 +27,5 @@ Fonctionnalités principales ⭐
 
 - Je dois continuer à développer ma logique
 - Travailler mes classes pour le SCSS afin de mieux intégrer BEM
-- Travailler sur la position lorsqu'elle est coché sur le formulaire~~
-- Mettre en place le responsive~~
+~~- Travailler sur la position lorsqu'elle est coché sur le formulaire~~~
+~~- Mettre en place le responsive~~

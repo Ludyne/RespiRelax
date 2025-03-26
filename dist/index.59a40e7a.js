@@ -615,6 +615,9 @@ class BreathingApp {
         this.segment = document.querySelector(".segment");
         this.inhaleSound = document.getElementById("inhaleSound");
         this.exhaleSound = document.getElementById("exhaleSound");
+        console.log("Form trouv\xe9:", this.form);
+        console.log("Breath ratio select:", this.form.querySelector("#breath-ratio"));
+        console.log("Sound toggle:", this.form.querySelector("#sound-toggle"));
         // Vérification audio
         if (this.inhaleSound && this.exhaleSound) {
             this.inhaleSound.load();
@@ -638,17 +641,17 @@ class BreathingApp {
             this.duration = parseInt(e.target.value);
         });
         // Gérer le changement de ratio de respiration
-        this.form.querySelector('[name="breath-ratio"]').addEventListener("change", (e)=>{
+        this.form.querySelector("#breath-ratio").addEventListener("change", (e)=>{
             this.breathRatio = e.target.value;
         });
         // Gérer le changement d'animation
-        this.form.querySelectorAll('[name="animation"]').forEach((radio)=>{
+        this.form.querySelectorAll('input[name="animation"]').forEach((radio)=>{
             radio.addEventListener("change", (e)=>{
                 this.animation = e.target.value;
             });
         });
         // Gérer l'activation/désactivation du son
-        this.form.querySelector('[name="son"]').addEventListener("change", (e)=>{
+        this.form.querySelector("#sound-toggle").addEventListener("change", (e)=>{
             this.soundEnabled = e.target.checked;
             console.log(this.soundEnabled = e.target.checked);
         });

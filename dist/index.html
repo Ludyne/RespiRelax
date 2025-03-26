@@ -16,7 +16,7 @@
     <header>
       <div class="header">
         <a href="/" class="header__logo">
-          <img src="/logo.726d37a8.png" alt="Mon assistant de cohérence cardiaque">
+          <img aria-hidden="true" src="/logo.726d37a8.png" alt="Mon assistant de cohérence cardiaque">
         </a>
       </div>
     </header>
@@ -26,53 +26,62 @@
         </h1>
         <section class="config">
           <h2 class="config-title">Paramétrer l'exercice</h2>
-          <form class="config__form" action="post">
+          <form class="config__form" action="post" aria-label="Configuration de la respiration">
             <div class="config-row">
-              <label>
+              <label for="duration">
                 <span class="config-legend">Durée</span>
                 <input type="range" name="duration" value="3" min="1" max="5" step="1">
               </label>
               <input aria-hidden="true" name="duration-number" type="number" value="3" min="1" max="5" step="1"> min
             </div>
             <div class="config-row">
-              <label>
-                <span class="config-legend">Temps de respiration (inspiration & expiration)</span>
-                <select name="breath-ratio" id="">
-                  <option>6/4</option>
-                  <option selected="">5/5</option>
-                  <option>4/6</option>
-                  <option>3/7</option>
+              <label for="breath-ratio">
+                <span class="config-legend">Temps de respiration</span>
+                <select name="breath-ratio" id="breath-ratio" aria-describedby="breath-ratio-desc">
+                  <option value="6/4">6 secondes inspiration, 4 secondes expiration</option>
+                  <option value="5/5" selected="">5 secondes inspiration, 5 secondes expiration</option>
+                  <option value="4/6">4 secondes inspiration, 6 secondes expiration</option>
+                  <option value="3/7">3 secondes inspiration, 7 secondes expiration</option>
                 </select>
+                <span id="breath-ratio-desc" class="visually-hidden">Choisissez le ratio entre le temps d'inspiration et
+                  d'expiration en secondes</span>
                 secondes
               </label>
             </div>
             <fieldset class="config-row">
               <legend class="config-legend">Animation</legend>
-              <label>
-                <input type="radio" checked="" name="animation" value="size">Taille
-              </label>
-              <label>
-                <input type="radio" name="animation" value="position">Position
-              </label>
+              <div class="radio-group" role="radiogroup" aria-labelledby="animation-legend">
+                <label for="animation-size">
+                  <input type="radio" checked="" id="animation-size" name="animation" value="size" aria-describedby="size-description">Taille
+                </label>
+                <span id="size-description" class="visually-hidden">L'animation se fera par changement de taille</span>
+                <label for="animation-position">
+                  <input type="radio" name="animation" id="animation-position" value="position" aria-describedby="position-description">Position
+                </label>
+                <span id="position-description" class="visually-hidden">L'animation se fera par changement de
+                  position</span>
+              </div>
             </fieldset>
             <fieldset class="config-row">
               <legend class="config-legend">Bruitage de l'océan</legend>
-              <label>
-                <input type="checkbox" name="son" value="1"> Activer le son
+              <label for="sound-toggle">
+                <input type="checkbox" name="son" value="1" id="sound-toggle" aria-describedby="sound-description">
+                Activer le son
               </label>
+              <span id="sound-description" class="visually-hidden">Cochez cette case pour activer le bruitage de l'océan
+                pendant l'exercice</span>
             </fieldset>
             <div class="config__form__action">
-              <button class="btn">Commencer</button>
+              <button aria-label="Démarrer l'exercice de respiration" class="btn">Commencer</button>
             </div>
           </form>
-        </section>
-        <section class="segment">
         </section>
         <audio id="inhaleSound" src="/int.4dad9a19.mp3"></audio>
         <audio id="exhaleSound" src="/out.00c8249b.mp3"></audio>
       </div>
     </main>
-    <footer>
+    <footer class="footer">
+      <p class="footer-text">&copy; 2025 - RespiRelax. All rights reserved. </p>
     </footer>
   </div>
 </body>
